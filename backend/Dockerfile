@@ -8,12 +8,6 @@ RUN apk update && apk upgrade && \
 # set current working directory
 WORKDIR /app/backend
 
-# copy go mod
-COPY go.mod ./
-
-# download all dependencies
-RUN go mod download
-
 # copy source code from current directory to container directory
 COPY . . 
 
