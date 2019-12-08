@@ -8,12 +8,16 @@ RUN npm -g install yarn
 
 WORKDIR /app/frontend
 
-COPY . .
+COPY package.json ./
+
+COPY yarn.lock ./
 
 RUN yarn install
+
+COPY . .
 
 RUN yarn build
 
 EXPOSE 8000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "server"]
